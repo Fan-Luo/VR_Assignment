@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AICharacterControl.cs" />
+    <Compile Include="Assets\Scripts\boxtri.cs" />
     <Compile Include="Assets\Scripts\movingBeam.cs" />
+    <Compile Include="Assets\Scripts\targetpoint.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/Users/fan/Documents/Courses/INFO524 VR/assignment/Take Home Assignment 1_2/VR_Assignment/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>

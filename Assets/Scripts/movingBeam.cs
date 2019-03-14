@@ -12,7 +12,7 @@ public class movingBeam : MonoBehaviour {
     public GameObject Ethan;
     public GameObject room;
 
-    static float speed;
+    public float speed;
     int direction1 = 1;
     int direction2 = 1;
     int direction3 = 1;
@@ -35,41 +35,37 @@ public class movingBeam : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-
-        if (!Input.anyKey)
-        {
-            RaycastHit hit;
-            GameObject hitObject;
-            Ray ray = new Ray(camera.transform.position, camera.transform.rotation * Vector3.forward);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                hitObject = hit.collider.gameObject;
-                if (hitObject.tag == "ground")
-                {
-
-                }
-            }
-
         //beam1
-        if (beam1.transform.position.y > 4.0f || beam1.transform.position.y < 0.0f)
+        if (beam1.transform.position.y >= 4.0f)
         {
-            direction1 *= -1;
+            direction1 = -1;
+        }
+        if (beam1.transform.position.y <= 0.0f)
+        {
+            direction1 = 1;
         }
         beam1.transform.Translate(0.0f, speed * Time.deltaTime * direction1, 0.0f);
 
 
         //beam2
-        if (beam2.transform.position.x > 4.0f || beam2.transform.position.x < -4.0f)
+        if (beam2.transform.position.x >= 4.0f)
         {
-            direction2 *= -1;
+            direction2 = -1;
+        }
+        if (beam2.transform.position.x <= -4.0f)
+        {
+            direction2 = 1;
         }
         beam2.transform.Translate(3 * speed * Time.deltaTime * direction2, 0.0f, 0.0f);
 
         //beam3
-        if (beam3.transform.position.y > 4.0f || beam3.transform.position.y < 0.0f)
+        if (beam3.transform.position.y >= 4.0f)
         {
-            direction3 *= -1;
+            direction3 = -1;
+        }
+        if (beam3.transform.position.y <= 0.0f)
+        {
+            direction3 = 1;
         }
         beam3.transform.Translate(0.0f, 2 * speed * Time.deltaTime * direction3, 0.0f);
 
@@ -80,6 +76,7 @@ public class movingBeam : MonoBehaviour {
         GameObject hitObject2;
         RaycastHit hit3;
         GameObject hitObject3;
+        GameObject expo;
         Ray ray1 = new Ray(beam1.transform.position, beam1.transform.rotation * Vector3.right);
         Ray ray2 = new Ray(beam2.transform.position, beam2.transform.rotation * Vector3.down);
         Ray ray3 = new Ray(beam3.transform.position, beam3.transform.rotation * Vector3.right);
@@ -88,8 +85,8 @@ public class movingBeam : MonoBehaviour {
             hitObject1 = hit1.collider.gameObject;
             if(hitObject1 == Ethan){
 
-                Instantiate(explosion, hit1.point, Quaternion.identity);
-                Destroy(explosion, 2);
+                expo = Instantiate(explosion, hit1.point, Quaternion.identity);
+                Destroy(expo, 2f);
 
                 //beam1.transform.GetComponentInChildren<LineRenderer>().material.color = Color.red;
                 beam1.transform.GetComponentInChildren<LineRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, 1.0f);
@@ -111,8 +108,8 @@ public class movingBeam : MonoBehaviour {
             if (hitObject2 == Ethan)
             {
 
-                Instantiate(explosion, hit2.point, Quaternion.identity);
-                Destroy(explosion, 2);
+                expo = Instantiate(explosion, hit2.point, Quaternion.identity);
+                Destroy(expo, 2f);
 
                 //beam1.transform.GetComponentInChildren<LineRenderer>().material.color = Color.red;
                 beam2.transform.GetComponentInChildren<LineRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, 1.0f);
@@ -133,12 +130,12 @@ public class movingBeam : MonoBehaviour {
             if (hitObject3 == Ethan)
             {
 
-                Instantiate(explosion, hit3.point, Quaternion.identity);
-                Destroy(explosion, 2);
+                expo = Instantiate(explosion, hit3.point, Quaternion.identity);
+                Destroy(expo, 2f);
 
                 //beam1.transform.GetComponentInChildren<LineRenderer>().material.color = Color.red;
                 beam3.transform.GetComponentInChildren<LineRenderer>().material.color = Color.Lerp(Color.red, Color.yellow, 1.0f);
-                room.GetComponent<Renderer>().material.color = Color.Lerp(Color.red, c, 1.0f);
+                room.GetComponent<Renderer>().material.color = Color.red;//Color.Lerp(Color.red, c, 1.0f);
 
 
                 //hitObject1.transform.position  = new Vector3(0f, 0f, -8f);
