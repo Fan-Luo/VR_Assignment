@@ -284,6 +284,10 @@ MonoBehaviour:
   beam1: {fileID: 1838763396}
   beam2: {fileID: 165946517}
   beam3: {fileID: 607090620}
+  walk_target: {fileID: 1062016876}
+  explosion: {fileID: 1649206240646054, guid: 1771cadec8bd26546bcf547455ff0333, type: 2}
+  Ethan: {fileID: 1091179467}
+  room: {fileID: 188985445}
 --- !u!4 &122109507
 Transform:
   m_ObjectHideFlags: 0
@@ -4561,6 +4565,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1088100715}
   m_Mesh: {fileID: 4300000, guid: 620813c3d11d1412a874c60c0aed7aeb, type: 3}
+--- !u!1 &1091179467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 113348, guid: 54eb5844754051b40a918a84c33b7c1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 814676372}
 --- !u!1 &1094028731
 GameObject:
   m_ObjectHideFlags: 0
