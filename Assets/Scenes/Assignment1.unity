@@ -277,6 +277,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1752526517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752526519}
+  - component: {fileID: 1752526518}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1752526518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752526517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec6c92e63fd644e59821c1347cd95c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceship: {fileID: 1403469406561712, guid: 37cddef2e791cd44a8f05249a941d90c, type: 2}
+  explosionParticle: {fileID: 1649206240646054, guid: 1771cadec8bd26546bcf547455ff0333,
+    type: 2}
+  sparksParticle: {fileID: 1620361343421746, guid: b51ca9b1df596ef4cab006d058301662,
+    type: 2}
+  asteroids:
+  - {fileID: 1112588554911634, guid: 193f9354416d76b49a694841f6b5b560, type: 2}
+  - {fileID: 1567898431702898, guid: 94917f3363d4b05418c9e53bb47c1672, type: 2}
+  - {fileID: 1551066311926076, guid: c4583745b633a9e41b2ea81a03e1201d, type: 2}
+  - {fileID: 1750679695486162, guid: 3d70c124c27f0934ea402a530ed6d323, type: 2}
+  - {fileID: 1411295230227382, guid: e9b7bd3f54f2fbf45950caa61feb5518, type: 2}
+--- !u!4 &1752526519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752526517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.10090053, y: 2.0144093, z: 8.974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928014242
 GameObject:
   m_ObjectHideFlags: 0

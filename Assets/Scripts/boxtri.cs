@@ -48,6 +48,15 @@ public class boxtri : MonoBehaviour {
                 Ethan.transform.position = movingBeam.ethan_position;
                 walk_target.position = new Vector3(0f, 0f, -8f);
 
+                if (success == 1)
+                {
+                    doortag.GetComponent<Renderer>().material.SetTexture("_MainTex", roomtag2);
+                }
+                if (success == 2)
+                {
+                    doortag.GetComponent<Renderer>().material.SetTexture("_MainTex", roomtag3);
+                }
+
                 if (success < 3) {    //close door
                     Door_Left.transform.position = Left_door_close_pos;
                     Door_Right.transform.position = Right_door_close_pos;
@@ -80,14 +89,6 @@ public class boxtri : MonoBehaviour {
             Door_Right.GetComponent<Renderer>().materials[0].color = Color.green;
         }
 
-        if (success == 1)
-        {
-            doortag.GetComponent<Renderer>().material.SetTexture("_MainTex", roomtag2);
-        }
-        if (success == 2)
-        {
-            doortag.GetComponent<Renderer>().material.SetTexture("_MainTex", roomtag3);
-        }
 
     }
 

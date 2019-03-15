@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scripts\AICharacterControl.cs" />
     <Compile Include="Assets\Scripts\boxtri.cs" />
     <Compile Include="Assets\Scripts\movingBeam.cs" />
+    <Compile Include="Assets\Scripts\sceneControl.cs" />
+    <Compile Include="Assets\Scripts\Spaceship.cs" />
     <Compile Include="Assets\Scripts\targetpoint.cs" />
     <Compile Include="Assets\Scripts\targetSelection.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
