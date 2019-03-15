@@ -6823,7 +6823,6 @@ GameObject:
   - component: {fileID: 1730186236}
   - component: {fileID: 1730186235}
   - component: {fileID: 1730186239}
-  - component: {fileID: 1730186240}
   m_Layer: 0
   m_Name: box
   m_TagString: Untagged
@@ -6913,22 +6912,6 @@ MonoBehaviour:
   walk_target: {fileID: 400013348}
   Door_Right: {fileID: 829253036}
   Door_Left: {fileID: 484074172}
---- !u!114 &1730186240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1730186234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5d5de61fce044ceb17e5b981a18253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Door_RightPrefab: {fileID: 0}
-  Door_LeftPrefab: {fileID: 0}
-  Door_RightPrefabInstance: {fileID: 0}
-  Door_LeftPrefabInstance: {fileID: 0}
-  scaleFactor: {x: 0, y: 0, z: 0}
 --- !u!1 &1753892626
 GameObject:
   m_ObjectHideFlags: 0
