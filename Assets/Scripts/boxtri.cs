@@ -4,40 +4,67 @@ using UnityEngine;
 
 public class boxtri : MonoBehaviour {
 
-    public GameObject Door_RightPrefab;
-    public GameObject Door_LeftPrefab;
-    private GameObject Door_RightPrefabInstance;
-    private GameObject Door_LeftPrefabInstance;
-    private Vector3 scaleFactor;
+    public GameObject Ethan;
+    public Transform walk_target;
+    public GameObject Door_Right;
+    public GameObject Door_Left;
+    Vector3 Left_door_close_pos;
+    Vector3 Left_door_open_pos;
+    Vector3 Right_door_close_pos;
+    Vector3 Right_door_open_pos;
+    Color c;
+    private int success = 0;
     private int score;
-    private int success;
+    bool door_open = false;   // door sliding
+
+    void Start()
+    {
+        Left_door_close_pos = Door_Left.transform.position;
+        Left_door_open_pos = new Vector3(Door_Left.transform.position.x - 1.7f, Door_Left.transform.position.y, Door_Left.transform.position.z);
+        Right_door_close_pos = Door_Right.transform.position;
+        //Right_door_open_pos = new Vector3(Door_Right.transform.position.x + 1.7f, Door_Right.transform.position.y, Door_Right.transform.position.z);
+        c = Door_Left.GetComponent<Renderer>().materials[0].color;
+    }
+
+    void Update()
+    {
+
+        if (door_open && Door_Left.transform.position.x > Left_door_open_pos.x)  //still sliding
+        {
+            Door_Left.transform.Translate(-1.2f * Time.deltaTime, 0.0f, 0.0f);
+            Door_Right.transform.Translate(1.2f * Time.deltaTime, 0.0f, 0.0f);
+
+            if (Door_Left.transform.position.x <= Left_door_open_pos.x)   //done with openning, close instantly
+            {
+                door_open = false;
+                Door_Left.transform.position = Left_door_close_pos;
+                Door_Right.transform.position = Right_door_close_pos;
+                Door_Left.GetComponent<Renderer>().materials[0].color = c;
+                Door_Right.GetComponent<Renderer>().materials[0].color = c;
+
+                movingBeam.speed = Random.Range(2.0f, 5.0f);
+                Ethan.transform.position = movingBeam.ethan_position;
+                walk_target.position = new Vector3(0f, 0f, -8f);
+            }
+
+        }
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (score < 3 && success == 1)
+        //if (score < 3 && success == 1)
+        //{
+        if (other.tag== "Player")
         {
-            if (other.tag == "Player")
-            {
-                Door_RightPrefabInstance = Instantiate(Door_RightPrefab, other.transform.transform.position, Quaternion.identity);
-                Door_LeftPrefabInstance = Instantiate(Door_LeftPrefab, other.transform.position, Quaternion.identity);
-            }
+            //open
+            door_open = true;
+            success += 1;
+            Door_Left.GetComponent<Renderer>().materials[0].color = Color.green;
+            Door_Right.GetComponent<Renderer>().materials[0].color = Color.green;
         }
-    }
-    void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Door_RightPrefab.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-            transform.Translate(Vector3.right * 1.7f * Time.deltaTime);
-            Door_LeftPrefab.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-            transform.Translate(Vector3.left * 1.7f * Time.deltaTime);
-            scaleFactor.x += 1.2f * Time.deltaTime;
-            scaleFactor.y += 0f * Time.deltaTime;
-            scaleFactor.z += 0f * Time.deltaTime;
-            Door_RightPrefabInstance.transform.localScale += scaleFactor;
-            Door_LeftPrefabInstance.transform.localScale -= scaleFactor;
-        }
-        Destroy(Door_RightPrefabInstance, 2f);
-        Destroy(Door_LeftPrefabInstance, 2f);
+
+
     }
 
 }
