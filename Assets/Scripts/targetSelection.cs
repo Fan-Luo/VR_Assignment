@@ -23,23 +23,23 @@ public class targetSelection : MonoBehaviour {
         //green_circle = Instantiate(selection, transform.position, Quaternion.identity);
         timeLeft -= Time.deltaTime;
         //Debug.Log(display_green_circle);
-        //if (!display_green_circle && Input.anyKeyDown) 
-        if (!display_green_circle && Input.GetKey("up"))
+        if (!display_green_circle && Input.anyKeyDown) 
+        //if (Input.anyKeyDown)
         {
             Debug.Log("transform");
             //Debug.Log(transform.position);
-            //    green_circle = Instantiate(selection, targetpoint.position, Quaternion.identity);
+            green_circle = Instantiate(selection, targetpoint.position, Quaternion.identity);
             ////    //Debug.Log(green_circle);
-            //display_green_circle = true;
-            //timeLeft = 2.0f;
+            display_green_circle = true;
+            timeLeft = 2.0f;
         }
 
-        if (display_green_circle && (Input.GetKey("up") || (timeLeft <= 0.0f)) && timeLeft < 2.0f)
+        if (display_green_circle && (Input.GetKeyDown(KeyCode.Space) || (timeLeft <= 0.0f)) && timeLeft < 2.0f)
         // without timeLeft < 2.0f, green_circle do not even showup, since Input.anyKeyDown is still true, it gets destory immediatedly
         {
             //Debug.Log("enter2");
-            //Destroy(green_circle);
-            //display_green_circle = false;
+            Destroy(green_circle);
+            display_green_circle = false;
         }
 
         //green_circle = Instantiate(selection, targetpoint.position, Quaternion.identity);
