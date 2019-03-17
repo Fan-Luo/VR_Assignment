@@ -6,6 +6,7 @@ public class boxtri : MonoBehaviour {
 
     public GameObject Ethan;
     public Transform walk_target;
+    public Transform yellowCircle;
     public GameObject Door_Right;
     public GameObject Door_Left;
     public GameObject doortag;
@@ -45,8 +46,9 @@ public class boxtri : MonoBehaviour {
             {
                 door_open = false;
                 movingBeam.speed = Random.Range(2.0f, 5.0f);
-                Ethan.transform.position = movingBeam.ethan_position;
+                Ethan.transform.position = new Vector3(0f, 0f, -8f);
                 walk_target.position = new Vector3(0f, 0f, -8f);
+                yellowCircle.position = new Vector3(0f, 0f, -8f);
 
                 if (success == 1)
                 {
@@ -78,8 +80,7 @@ public class boxtri : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        //if (score < 3 && success == 1)
-        //{
+
         if (other.tag== "Player")
         {
             //open

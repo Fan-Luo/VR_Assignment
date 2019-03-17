@@ -36,10 +36,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     target.position = hitFromRay.point; //target position = hit point position
                     target.GetComponent<Renderer>().material.SetTexture("_MainTex", targetTexture); // sets target's texture to targetTexture
                     target.GetComponent<Renderer>().material.color = new Color(1f, 0.92f, 0.016f, .5f); // 
-                    if (Input.anyKeyDown)
-                    {
-
-                    }
+                   
                 }
             }
 
